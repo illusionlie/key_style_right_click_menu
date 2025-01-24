@@ -6,6 +6,7 @@
 
 - 原项目使用了 jQuery 依赖，本项目仅使用原生 JavaScript 实现
 - 将 `GalMenu.css` 样式和 `overlay` 元素写入 `GalMenu.js` 中动态加载
+- 使用 AI 辅助编写
 
 ## 使用方法
 

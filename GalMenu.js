@@ -1,9 +1,9 @@
 (function() {
     //  动态加载 CSS 样式
-    const galStyle = document.getElementById('gal_style'); // 修改点1:  检查 <style id="gal_style"> 是否已存在
+    const galStyle = document.getElementById('gal_style'); // 检查 <style id="gal_style"> 是否已存在
     if (!galStyle) {
         const styleElement = document.createElement('style');
-        styleElement.id = 'gal_style'; // 修改点2: 设置 style 元素的 id 为 gal_style
+        styleElement.id = 'gal_style'; // 设置 style 元素的 id 为 gal_style
         styleElement.innerHTML = `
             @charset "utf-8";
             body,html{margin:0;padding:0;width:100%;height:100%}
@@ -25,7 +25,7 @@
             .ring a:nth-of-type(6){background-image:url(https://cdn.illusionlie.com/img/girls/ayane_thumb.webp)}
             .ring a{display:inline-block;color:#fff;text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-webkit-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-moz-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0}
             .ring a:hover{text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;-webkit-text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;-moz-text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0}
-            #overlay{height:100%;position:fixed;width:100%;left:0;top:0;background:url() repeat scroll 0 0 rgba(0,0,0,.5);display:none;z-index:998;} /* 修改点3: 为 overlay 添加 z-index */
+            #overlay{height:100%;position:fixed;width:100%;left:0;top:0;background:url() repeat scroll 0 0 rgba(0,0,0,.5);display:none;z-index:998;} /* 为 overlay 添加 z-index */
         `;
         document.head.appendChild(styleElement);
     }
@@ -102,7 +102,7 @@
                     var circle = menu.querySelector(".circle");
                     circle.classList.remove("open");
                     galOverlay.style.display = "none"; // 隐藏 overlay
-                    // 修改点13: 使用setTimeout和transition实现动画效果
+                    // 使用setTimeout和transition实现动画效果
                     menu.style.opacity = 1;
                     menu.style.transition = 'opacity 0.4s ease-out'; // 添加transition属性
                     menu.style.opacity = 0;
