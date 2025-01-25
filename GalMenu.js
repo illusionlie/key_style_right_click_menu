@@ -17,12 +17,12 @@
             .open{border-color:#aaa}
             .menuItem{border-radius:50%;color:#eee;display:block;height:80px;line-height:80px;margin-left:-41px;margin-top:-41px;position:absolute;text-align:center;width:80px;background-size:80px;border:2px #b59494 solid;box-shadow:0 0 15px #fff;-webkit-box-shadow:0 0 15px #fff;-moz-box-shadow:0 0 15px #fff}
             .menuItem:hover{box-shadow:inset 0 0 80px #fff;-webkit-box-shadow:inset 0 0 80px #fff;-moz-box-shadow:inset 0 0 80px #fff}
-            .ring a:nth-of-type(1){background-image:url(https://cdn.illusionlie.com/img/girls/chieri_thumb.webp)}
-            .ring a:nth-of-type(2){background-image:url(https://cdn.illusionlie.com/img/girls/kaguya_thumb.webp)}
-            .ring a:nth-of-type(3){background-image:url(https://cdn.illusionlie.com/img/girls/ren_thumb.webp)}
-            .ring a:nth-of-type(4){background-image:url(https://cdn.illusionlie.com/img/girls/yurugi_thumb.webp)}
-            .ring a:nth-of-type(5){background-image:url(https://cdn.illusionlie.com/img/girls/uena_thumb.webp)}
-            .ring a:nth-of-type(6){background-image:url(https://cdn.illusionlie.com/img/girls/ayane_thumb.webp)}
+            .ring a:nth-of-type(1){background-image: var(--ring1-pic)}
+            .ring a:nth-of-type(2){background-image: var(--ring2-pic)}
+            .ring a:nth-of-type(3){background-image: var(--ring3-pic)}
+            .ring a:nth-of-type(4){background-image: var(--ring4-pic)}
+            .ring a:nth-of-type(5){background-image: var(--ring5-pic)}
+            .ring a:nth-of-type(6){background-image: var(--ring6-pic)}
             .ring a{display:inline-block;color:#fff;text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-webkit-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-moz-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0}
             .ring a:hover{text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;-webkit-text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;-moz-text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0}
             #overlay{height:100%;position:fixed;width:100%;left:0;top:0;background:url() repeat scroll 0 0 rgba(0,0,0,.5);display:none;z-index:998;} /* 为 overlay 添加 z-index */
@@ -35,11 +35,19 @@
         defaults:{
             menu:"galRing",
             click_to_close:true,
-            stay_open:false
+            stay_open:false,
+            audio_play:false,
+            audio_url:"./audio.mp3",
+            ring1_pic:"https://cdn.illusionlie.com/img/girls/chieri_thumb.webp",
+            ring2_pic:"https://cdn.illusionlie.com/img/girls/kaguya_thumb.webp",
+            ring3_pic:"https://cdn.illusionlie.com/img/girls/ren_thumb.webp",
+            ring4_pic:"https://cdn.illusionlie.com/img/girls/yurugi_thumb.webp",
+            ring5_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
+            ring6_pic:"https://cdn.illusionlie.com/img/girls/ayane_thumb.webp"
         },
         init:function(options) {
             var o = options,
-                audio = document.getElementById("galAudio"),
+            //    audio = document.getElementById("galAudio"),
                 elements = document.querySelectorAll(this);
 
             //  创建和获取 overlay
@@ -55,7 +63,20 @@
             elements.forEach(function(el) {
                 var settings = Object.assign({}, galMenu.defaults, o),
                     menu = document.querySelector("." + settings.menu);
+                    circle = menu.querySelector(".circle");
+                
+                // 动态创建 <audio> 元素
+                let audio = document.createElement('audio');
+                audio.id = 'galAudio';
+                circle.appendChild(audio);
 
+                // 应用图片配置到 CSS 变量
+                menu.style.setProperty('--ring1-pic', `url('${settings.ring1_pic}')`);
+                menu.style.setProperty('--ring2-pic', `url('${settings.ring2_pic}')`);
+                menu.style.setProperty('--ring3-pic', `url('${settings.ring3_pic}')`);
+                menu.style.setProperty('--ring4-pic', `url('${settings.ring4_pic}')`);
+                menu.style.setProperty('--ring5-pic', `url('${settings.ring5_pic}')`);
+                menu.style.setProperty('--ring6-pic', `url('${settings.ring6_pic}')`);
 
                 function galOpen(e) {
                     galMenu.getCoords(e);
@@ -95,7 +116,13 @@
                     circle.classList.add("open");
                     galOverlay.style.display = "block"; // 显示 overlay
                     menu.style.display = "block";
-                    audio.play();
+                    
+                    // 设置 audio src 和 控制播放
+                    audio.src = settings.audio_url;
+                    if (settings.audio_play) {
+                        audio.play();
+                    }
+
                 }
 
                 function galClose(e) {
@@ -211,12 +238,6 @@
             items[i].style.left = (50 - 35 * Math.cos(-.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
             items[i].style.top = (50 + 35 * Math.sin(-.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
         }
-
-        galMenu('body', {
-          menu:"galRing",
-          click_to_close:true,
-          stay_open:false
-        });
     });
 })();
 
