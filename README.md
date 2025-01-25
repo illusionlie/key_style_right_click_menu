@@ -5,51 +5,24 @@
 原项目来自 [这里](https://github.com/LanlingKira/key_style_right_click_menu)
 
 - 原项目使用了 jQuery 依赖，本项目仅使用原生 JavaScript 实现
-- 将 `GalMenu.css` 样式和 `overlay` 元素写入 `GalMenu.js` 中动态加载
+- ~~将 `GalMenu.css` 样式和 `overlay` 元素写入 `GalMenu.js` 中动态加载~~
+- ~~无需在页面中添加 `<div class="galMenu galRing">` 以及其子元素 (包括`galAudio`)~~
+- **完美实现 `All in one`, 无需添加额外的 HTML 元素和引入文件。使用配置参数动态设置**
 - 使用 AI 辅助编写
 
 ## 使用方法
 
 ### 引入文件
 
-在页面中引入 GalMenu.js 文件
+在页面中引入 GalMenu.js 或 GalMenu.min.js 文件
 
 ``` html
-<script type="text/javascript" src="js/GalMenu.js"></script>
+<script type="text/javascript" src="js/GalMenu.min.js"></script>
 ```
 
 ### HTML 结构
 
-为菜单项设置相应的跳转或点击事件
-
-``` html
-<div class="galMenu galRing">
-  <div class="circle" id="gal">
-    <div class="ring">
-      <a href="#" title="Home" class="menuItem">Home</a>
-      <a href="#" title="Blog" class="menuItem">Blog</a>
-      <a href="#" title="About" class="menuItem">About</a>
-      <a href="#" title="Contact" class="menuItem">Contact</a>
-      <a href="#" title="Social" class="menuItem">Social</a>
-      <a href="#" title="Other" class="menuItem">Other</a>
-    </div>
-    <audio id="galAudio" src="audio/nyanpass.mp3"></audio>
-  </div>
-</div>
-```
-
-### CSS 样式
-
-在JS文件中, 为右键菜单的菜单项设置背景图片
-
-``` css
-.ring a:nth-of-type(1){background-image:url(1.jpg)}
-.ring a:nth-of-type(2){background-image:url(2.jpg)}
-.ring a:nth-of-type(3){background-image:url(3.jpg)}
-.ring a:nth-of-type(4){background-image:url(4.jpg)}
-.ring a:nth-of-type(5){background-image:url(5.jpg)}
-.ring a:nth-of-type(6){background-image:url(6.jpg)}
-```
+无需再添加任何 HTML 元素
 
 ### 初始化插件
 
@@ -61,7 +34,27 @@
     galMenu('body', {
       menu:"galRing",
       click_to_close:true,
-      stay_open:false
+      stay_open:false,
+      audio_play:true,
+      audio_url:"./nyanpass.mp3",
+      ring1_text:"Home",
+      ring1_link:"https://github.com/illusionlie/key_style_right_click_menu",
+      ring1_pic:"https://cdn.illusionlie.com/img/girls/ayane_thumb.webp",
+      ring2_text:"Blog",
+      ring2_link:"https://blog.thkira.com/",
+      ring2_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
+      ring3_text:"About",
+      ring3_link:"#about",
+      ring3_pic:"https://cdn.illusionlie.com/img/girls/yurugi_thumb.webp",
+      ring4_text:"Contact",
+      ring4_link:"#contact",
+      ring4_pic:"https://cdn.illusionlie.com/img/girls/ren_thumb.webp",
+      ring5_text:"Social",
+      ring5_link:"#social",
+      ring5_pic:"https://cdn.illusionlie.com/img/girls/kaguya_thumb.webp",
+      ring6_text:"Other",
+      ring6_link:"#other",
+      ring6_pic:"https://cdn.illusionlie.com/img/girls/chieri_thumb.webp"
     });
   });
 </script>
@@ -69,10 +62,15 @@
 
 ### 配置参数
 
-GalMenu.js 有 2 个可用的配置参数
+GalMenu.js 有多个需要配置的配置参数
 
 - `click_to_close`：是否在点击遮罩层时关闭右键菜单，默认为 true
 - `stay_open`：是否在点击菜单项后一直显示右键菜单，默认为 false
+- `audio_play`：是否在点击菜单项时播放音频，默认为 true
+- `audio_url`：音频文件的 URL，默认为 "./audio.mp3"
+- `ring*_text`：第*个菜单项的文本内容, 默认为 "Place*" (*代表数字, 范围在1至6)
+- `ring*_link`：第*个菜单项的链接, 默认为 "#" (*代表数字, 范围在1至6)
+- `ring*_pic`：第*个菜单项的图片链接, 默认请查看 js 文件中的默认设置 (*代表数字, 范围在1至6)
 
 ### 关闭菜单
 

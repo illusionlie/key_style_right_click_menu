@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GalMenu.js 右键环形菜单</title>
+    <title>GalMenu.js 右键环形菜单demo</title>
     <meta name="Author" content="兰陵 thkira.com,虚像谎言 illusionlie.com">
-    <script type="text/javascript" src="./GalMenu.js"></script>
+    <script type="text/javascript" src="./GalMenu.min.js"></script>
   </head>
   <body>
     <script type="text/javascript">
@@ -15,29 +15,29 @@
           menu:"galRing",
           click_to_close:true,
           stay_open:false,
-          audio_play:false,
+          audio_play:true,
           audio_url:"./nyanpass.mp3",
-          ring1_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
+          ring1_text:"Home",
+          ring1_link:"https://github.com/illusionlie/key_style_right_click_menu",
+          ring1_pic:"https://cdn.illusionlie.com/img/girls/ayane_thumb.webp",
+          ring2_text:"Blog",
+          ring2_link:"https://blog.thkira.com/",
           ring2_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
-          ring3_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
-          ring4_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
-          ring5_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
-          ring6_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp"
+          ring3_text:"About",
+          ring3_link:"#about",
+          ring3_pic:"https://cdn.illusionlie.com/img/girls/yurugi_thumb.webp",
+          ring4_text:"Contact",
+          ring4_link:"#contact",
+          ring4_pic:"https://cdn.illusionlie.com/img/girls/ren_thumb.webp",
+          ring5_text:"Social",
+          ring5_link:"#social",
+          ring5_pic:"https://cdn.illusionlie.com/img/girls/kaguya_thumb.webp",
+          ring6_text:"Other",
+          ring6_link:"#other",
+          ring6_pic:"https://cdn.illusionlie.com/img/girls/chieri_thumb.webp"
         });
       });
     </script>
-    <div class="galMenu galRing">
-      <div class="circle" id="gal">
-        <div class="ring">
-          <a href="#" title="Home" class="menuItem">Home</a>
-          <a href="https://blog.illusionlie.com/" target="_blank" title="Blog" class="menuItem">Blog</a>
-          <a href="https://github.com/illusionlie/key_style_right_click_menu" title="About" class="menuItem">About</a>
-          <a href="#" title="Contact" class="menuItem">Contact</a>
-          <a href="#" title="Social" class="menuItem">Social</a>
-          <a href="#" title="Other" class="menuItem">Other</a>
-        </div>
-      </div>
-    </div>
     <a href="https://github.com/illusionlie/key_style_right_click_menu" class="github-corner">
     <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#66677c; color:#fff; position: absolute; top: 0; border: 0; right: 0;z-index:9999">
       <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
