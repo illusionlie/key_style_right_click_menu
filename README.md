@@ -84,7 +84,8 @@ GalMenu.js 有多个需要配置的配置参数
 
 1. 完整下载项目所有文件后打开`index.html`
 2. ~~[https://thkira.com/key.html](http://thkira.com/key.html "仿Key游戏风格jQuery右键菜单")~~ (已失效)
-3. 待添加...
+3. [https://demo.illusionlie.com/key_style_right_click_menu/](https://demo.illusionlie.com/key_style_right_click_menu/) (该项目)
+4. [https://demo.illusionlie.com/key_style_right_click_menu/origin](https://demo.illusionlie.com/key_style_right_click_menu/origin) (原项目)
 
 ## LICENSE
 
