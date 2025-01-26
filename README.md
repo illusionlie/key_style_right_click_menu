@@ -2,7 +2,7 @@
 
 ## 与原项目的区别
 
-原项目来自 [这里](https://github.com/LanlingKira/key_style_right_click_menu)
+原项目来自 [这里](https://github.com/LanlingKira/key_style_right_click_menu) , 感谢原作者的辛苦工作！
 
 - 原项目使用了 jQuery 依赖，本项目仅使用原生 JavaScript 实现
 - ~~将 `GalMenu.css` 样式和 `overlay` 元素写入 `GalMenu.js` 中动态加载~~
@@ -85,6 +85,11 @@ GalMenu.js 有多个需要配置的配置参数
 - 再次右键
 - 左键点击遮罩层
 - ESC 关闭
+
+## 注意事项
+
+GalMenu修改了全局样式 `body`和`html`的`height`属性为`100%`(硬性要求)
+如果你引入GalMenu后出现样式异常, 请优先检查
 
 ## 演示地址
 
