@@ -17,7 +17,13 @@
 在页面中引入 GalMenu.js 或 GalMenu.min.js 文件
 
 ``` html
-<script type="text/javascript" src="js/GalMenu.min.js"></script>
+<script type="text/javascript" src="./GalMenu.min.js"></script>
+```
+
+或使用 JsDelivr CDN
+
+```html
+<script type="text/javascript" src="https://gcore.jsdelivr.net/gh/illusionlie/key_style_right_click_menu/GalMenu.min.js"></script>
 ```
 
 ### HTML 结构
@@ -36,7 +42,7 @@
       click_to_close:true,
       stay_open:false,
       audio_play:true,
-      audio_url:"./nyanpass.mp3",
+      audio_url:"https://cdn.illusionlie.com/js/key_style_right_click_menu/audio.mp3",
       ring1_text:"Home",
       ring1_link:"https://github.com/illusionlie/key_style_right_click_menu",
       ring1_pic:"https://cdn.illusionlie.com/img/girls/ayane_thumb.webp",

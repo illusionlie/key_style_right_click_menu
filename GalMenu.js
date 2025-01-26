@@ -37,7 +37,7 @@
             click_to_close:true,
             stay_open:false,
             audio_play:false,
-            audio_url:"./audio.mp3",
+            audio_url:"https://cdn.illusionlie.com/js/key_style_right_click_menu/audio.mp3",
             ring1_text:"Place1",
             ring1_link:"#",
             ring1_pic:"https://cdn.illusionlie.com/img/girls/chieri_thumb.webp",
