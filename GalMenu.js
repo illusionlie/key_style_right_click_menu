@@ -10,24 +10,23 @@
             .galMenu{margin:0;padding:0;display:none;position:fixed;z-index:999}
             .galMenu .circle,.galMenu .ring{height:300px;position:relative;width:300px}
             .galMenu .circle{margin:0 auto}
-            .galMenu .ring{border-radius:50%;opacity:0;-webkit-transform-origin:50% 50%;-moz-transform-origin:50% 50%;-ms-transform-origin:50% 50%;-o-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-transform:scale(.1) rotate(-270deg);-moz-transform:scale(.1) rotate(-270deg);-ms-transform:scale(.1) rotate(-270deg);-o-transform:scale(.1) rotate(-270deg);transform:scale(.1) rotate(-270deg);-webkit-transition:all .4s ease-out;-moz-transition:all .4s ease-out;-ms-transition:all .4s ease-out;-o-transition:all .4s ease-out;transition:all .4s ease-out}
-            .galMenu .open .ring{opacity:1;-webkit-transform:scale(1) rotate(0);-moz-transform:scale(1) rotate(0);-ms-transform:scale(1) rotate(0);-o-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}
+            .galMenu .ring{border-radius:50%;opacity:0;transform-origin:50% 50%;transform:scale(.1) rotate(-270deg);transition:all .4s ease-out;}
+            .galMenu .open .ring{opacity:1;transform:scale(1) rotate(0)}
             .galMenu .open{border-color:#aaa}
-            .galMenu .menuItem{border-radius:50%;color:#eee;display:block;height:80px;line-height:80px;margin-left:-41px;margin-top:-41px;position:absolute;text-align:center;width:80px;background-size:80px;border:2px #b59494 solid;box-shadow:0 0 15px #fff;-webkit-box-shadow:0 0 15px #fff;-moz-box-shadow:0 0 15px #fff}
-            .galMenu .menuItem:hover{box-shadow:inset 0 0 80px #fff;-webkit-box-shadow:inset 0 0 80px #fff;-moz-box-shadow:inset 0 0 80px #fff}
+            .galMenu .menuItem{border-radius:50%;color:#eee;display:block;height:80px;line-height:80px;margin-left:-41px;margin-top:-41px;position:absolute;text-align:center;width:80px;background-size:80px;border:2px #b59494 solid;box-shadow:0 0 15px #fff;}
+            .galMenu .menuItem:hover{box-shadow:inset 0 0 80px #fff;-webkit-box-shadow:inset 0 0 80px #fff;-moz-box-shadow:inset 0 0 80px #fff;}
             .galMenu .ring a:nth-of-type(1){background-image: var(--ring1-pic)}
             .galMenu .ring a:nth-of-type(2){background-image: var(--ring2-pic)}
             .galMenu .ring a:nth-of-type(3){background-image: var(--ring3-pic)}
             .galMenu .ring a:nth-of-type(4){background-image: var(--ring4-pic)}
             .galMenu .ring a:nth-of-type(5){background-image: var(--ring5-pic)}
             .galMenu .ring a:nth-of-type(6){background-image: var(--ring6-pic)}
-            .galMenu .ring a{font-family:cursive,sans-serif;font-size:var(--font-size);display:inline-block;color:#fff;text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-webkit-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-moz-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;}
-            .galMenu .ring a:hover{text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;-webkit-text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;-moz-text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0}
+            .galMenu .ring a{font-family:cursive,sans-serif;font-size:var(--font-size);display:inline-block;color:#fff;text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;}
+            .galMenu .ring a:hover{text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;}
             #overlay{height:100%;position:fixed;width:100%;left:0;top:0;background:url() repeat scroll 0 0 rgba(0,0,0,.5);display:none;z-index:998;}
         `;
         document.head.appendChild(styleElement);
     }
-
 
     var galMenu = {
         defaults:{
@@ -107,7 +106,7 @@
                 audio.id = 'galAudio';
                 circle.appendChild(audio);
 
-                // 应用图片配置到 CSS 变量
+                // 应用配置到 CSS 变量
                 menu.style.setProperty('--ring1-pic', `url('${settings.ring1_pic}')`);
                 menu.style.setProperty('--ring2-pic', `url('${settings.ring2_pic}')`);
                 menu.style.setProperty('--ring3-pic', `url('${settings.ring3_pic}')`);
@@ -163,7 +162,7 @@
 
                 }
 
-                function galClose(e) {
+                function galClose() {
                     var circle = menu.querySelector(".circle");
                     circle.classList.remove("open");
                     galOverlay.style.display = "none";
@@ -257,8 +256,6 @@
 
 
     window.galMenu = function(selector, method, options) {
-        var elements = document.querySelectorAll(selector);
-
         if (galMenu[method]) {
             return galMenu[method].apply(selector, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
@@ -268,15 +265,3 @@
         }
     };
 })();
-
-String.prototype.removeWS = function() {
-    return this.toString().replace(/\s/g, "");
-};
-
-String.prototype.pF = function() {
-    return parseFloat(this);
-};
-
-Number.prototype.pF = function() {
-    return parseFloat(this);
-};
