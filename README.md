@@ -43,6 +43,7 @@
       stay_open:false,
       audio_play:true,
       audio_url:"https://cdn.illusionlie.com/js/key_style_right_click_menu/audio.mp3",
+      font_size:"18px",
       ring1_text:"Home",
       ring1_link:"https://github.com/illusionlie/key_style_right_click_menu",
       ring1_pic:"https://cdn.illusionlie.com/img/girls/ayane_thumb.webp",
@@ -74,6 +75,7 @@ GalMenu.js 有多个需要配置的配置参数
 - `stay_open`：是否在点击菜单项后一直显示右键菜单，默认为 false
 - `audio_play`：是否在点击菜单项时播放音频，默认为 true
 - `audio_url`：音频文件的 URL，默认为 "./audio.mp3"
+- `font_size`：菜单项的字体大小，默认为 "18px"
 - `ring*_text`：第*个菜单项的文本内容, 默认为 "Place*" (*代表数字, 范围在1至6)
 - `ring*_link`：第*个菜单项的链接, 默认为 "#" (*代表数字, 范围在1至6)
 - `ring*_pic`：第*个菜单项的图片链接, 默认请查看 js 文件中的默认设置 (*代表数字, 范围在1至6)

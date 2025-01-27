@@ -21,7 +21,7 @@
             .galMenu .ring a:nth-of-type(4){background-image: var(--ring4-pic)}
             .galMenu .ring a:nth-of-type(5){background-image: var(--ring5-pic)}
             .galMenu .ring a:nth-of-type(6){background-image: var(--ring6-pic)}
-            .galMenu .ring a{font-size:1.2rem;display:inline-block;color:#fff;text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-webkit-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-moz-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;}
+            .galMenu .ring a{font-family:cursive,sans-serif;font-size:var(--font-size);display:inline-block;color:#fff;text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-webkit-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;-moz-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;}
             .galMenu .ring a:hover{text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;-webkit-text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0;-moz-text-shadow:#6CF 1px 0 0,#6CF 0 1px 0,#6CF -1px 0 0,#6CF 0 -1px 0}
             #overlay{height:100%;position:fixed;width:100%;left:0;top:0;background:url() repeat scroll 0 0 rgba(0,0,0,.5);display:none;z-index:998;}
         `;
@@ -36,6 +36,7 @@
             stay_open:false,
             audio_play:false,
             audio_url:"https://cdn.illusionlie.com/js/key_style_right_click_menu/audio.mp3",
+            font_size:"20px",
             ring1_text:"Place1",
             ring1_link:"#",
             ring1_pic:"https://cdn.illusionlie.com/img/girls/chieri_thumb.webp",
@@ -113,6 +114,7 @@
                 menu.style.setProperty('--ring4-pic', `url('${settings.ring4_pic}')`);
                 menu.style.setProperty('--ring5-pic', `url('${settings.ring5_pic}')`);
                 menu.style.setProperty('--ring6-pic', `url('${settings.ring6_pic}')`);
+                menu.style.setProperty('--font-size', `${settings.font_size}`);
 
                 function galOpen(e) {
                     galMenu.getCoords(e);
