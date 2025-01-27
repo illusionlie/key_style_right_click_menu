@@ -12,35 +12,39 @@
     <script type="text/javascript">
         let counter = 0;
         const maxCounter = 10;
-        document.addEventListener('DOMContentLoaded', function(initgalMenu) {
-          if (typeof galMenu !== 'function') {if (counter > maxCounter) {console.error("⚙️GalMenu: Retry limit reached!");return;} else {counter++;console.warn("⚙️GalMenu: Js hasn't finished loading yet, retrying...");setTimeout(initgalMenu, 1000);}}
-        galMenu('body', {
-          menu:"galRing",
-          click_to_close:true,
-          stay_open:false,
-          audio_play:true,
-          audio_url:"https://cdn.illusionlie.com/js/key_style_right_click_menu/audio.mp3",
-          font_size:"1.0em",
-          ring1_text:"Home",
-          ring1_link:"https://github.com/illusionlie/key_style_right_click_menu",
-          ring1_pic:"https://cdn.illusionlie.com/img/girls/ayane_thumb.webp",
-          ring2_text:"Blog",
-          ring2_link:"https://blog.thkira.com/",
-          ring2_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
-          ring3_text:"About",
-          ring3_link:"#about",
-          ring3_pic:"https://cdn.illusionlie.com/img/girls/yurugi_thumb.webp",
-          ring4_text:"Contact",
-          ring4_link:"#contact",
-          ring4_pic:"https://cdn.illusionlie.com/img/girls/ren_thumb.webp",
-          ring5_text:"Social",
-          ring5_link:"#social",
-          ring5_pic:"https://cdn.illusionlie.com/img/girls/kaguya_thumb.webp",
-          ring6_text:"Other",
-          ring6_link:"#other",
-          ring6_pic:"https://cdn.illusionlie.com/img/girls/chieri_thumb.webp"
-        });
-        console.log("⚙️GalMenu: Initialized!");
+        document.addEventListener('DOMContentLoaded', function initgalMenu() {
+          if (typeof galMenu !== 'function') {if (counter >= maxCounter) {console.error("⚙️GalMenu: Retry limit reached!");return;} else {counter++;console.warn("⚙️GalMenu: Js hasn't finished loading yet, retrying...");setTimeout(initgalMenu, 1000);return;}}
+          try {
+          galMenu('body', {
+            menu:"galRing",
+            click_to_close:true,
+            stay_open:false,
+            audio_play:true,
+            audio_url:"https://cdn.illusionlie.com/js/key_style_right_click_menu/audio.mp3",
+            font_size:"1.0em",
+            ring1_text:"Home",
+            ring1_link:"https://github.com/illusionlie/key_style_right_click_menu",
+            ring1_pic:"https://cdn.illusionlie.com/img/girls/ayane_thumb.webp",
+            ring2_text:"Blog",
+            ring2_link:"https://blog.thkira.com/",
+            ring2_pic:"https://cdn.illusionlie.com/img/girls/neri_thumb.webp",
+            ring3_text:"About",
+            ring3_link:"#about",
+            ring3_pic:"https://cdn.illusionlie.com/img/girls/yurugi_thumb.webp",
+            ring4_text:"Contact",
+            ring4_link:"#contact",
+            ring4_pic:"https://cdn.illusionlie.com/img/girls/ren_thumb.webp",
+            ring5_text:"Social",
+            ring5_link:"#social",
+            ring5_pic:"https://cdn.illusionlie.com/img/girls/kaguya_thumb.webp",
+            ring6_text:"Other",
+            ring6_link:"#other",
+            ring6_pic:"https://cdn.illusionlie.com/img/girls/chieri_thumb.webp"
+          });
+          console.log("⚙️GalMenu: Initialized!");
+          } catch (error) {
+            console.error("⚙️GalMenu: Initialization failed:", error);
+          }
       });
     </script>
     <a href="https://github.com/illusionlie/key_style_right_click_menu" class="github-corner">
