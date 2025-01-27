@@ -10,13 +10,16 @@
   </head>
   <body>
     <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', function() {
+        let counter = 0;
+        const maxCounter = 10;
+        document.addEventListener('DOMContentLoaded', function(initgalMenu) {
+          if (typeof galMenu !== 'function') {if (counter > maxCounter) {return;} else {counter++;setTimeout(initgalMenu, 1000);}}
         galMenu('body', {
           menu:"galRing",
           click_to_close:true,
           stay_open:false,
           audio_play:true,
-          /*font_size:"1.0em",*/
+          font_size:"1.0em",
           audio_url:"https://cdn.illusionlie.com/js/key_style_right_click_menu/audio.mp3",
           ring1_text:"Home",
           ring1_link:"https://github.com/illusionlie/key_style_right_click_menu",

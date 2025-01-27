@@ -36,7 +36,10 @@
 
 ``` html
 <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
+  let counter = 0;
+  const maxCounter = 10;
+  document.addEventListener('DOMContentLoaded', function(initgalMenu) {
+    if (typeof galMenu !== 'function') {if (counter > maxCounter) {return;} else {counter++;setTimeout(initgalMenu, 1000);}}
     galMenu('body', {
       menu:"galRing",
       click_to_close:true,
@@ -68,6 +71,10 @@
 ```
 
 ### 配置参数
+
+为了避免 JS 加载缓慢导致提前执行 galMenu() 方法, 添加了一个重试计数器, 每次重试间隔 1 秒
+
+- `maxCounter`: 最大重试次数, 默认为 10
 
 GalMenu.js 有多个需要配置的配置参数
 
