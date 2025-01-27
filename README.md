@@ -39,7 +39,7 @@
   let counter = 0;
   const maxCounter = 10;
   document.addEventListener('DOMContentLoaded', function(initgalMenu) {
-    if (typeof galMenu !== 'function') {if (counter > maxCounter) {return;} else {counter++;setTimeout(initgalMenu, 1000);}}
+    if (typeof galMenu !== 'function') {if (counter > maxCounter) {console.error("⚙️GalMenu: Retry limit reached!");return;} else {counter++;console.warn("⚙️GalMenu: Js hasn't finished loading yet, retrying...");setTimeout(initgalMenu, 1000);}}else {counter++;setTimeout(initgalMenu, 1000);};
     galMenu('body', {
       menu:"galRing",
       click_to_close:true,

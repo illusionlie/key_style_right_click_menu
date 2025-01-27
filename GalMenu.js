@@ -26,6 +26,9 @@
             #overlay{height:100%;position:fixed;width:100%;left:0;top:0;background:url() repeat scroll 0 0 rgba(0,0,0,.5);display:none;z-index:998;}
         `;
         document.head.appendChild(styleElement);
+        if (!document.getElementById('gal_style')) {
+            console.error('⚙️GalMenu: Failed to load GalMenu style!');
+        }
     }
 
     var galMenu = {
@@ -67,7 +70,6 @@
                 galOverlay.style.display = 'none';
                 document.body.appendChild(galOverlay);
             }
-
             
             elements.forEach(function(el) {
                 var settings = Object.assign({}, galMenu.defaults, o),
@@ -90,7 +92,7 @@
                     menuItem.className = "menuItem";
                     menuItem.href = settings[`ring${i}_link`];
                     menuItem.title = settings[`ring${i}_text`];
-                    menuItem.textContent = settings[`ring${i}_text`]; // 或者 menuItem.innerHTML = settings[`ring${i}_text`];
+                    menuItem.textContent = settings[`ring${i}_text`];
                     ring.appendChild(menuItem);
                 }
 
@@ -261,7 +263,7 @@
         } else if (typeof method === 'object' || !method) {
             return galMenu.init.apply(selector, [method || options]);
         } else {
-            console.error("Method " + method + " does not exist");
+            console.error("⚙️GalMenu: Method " + method + " does not exist");
         }
     };
 })();

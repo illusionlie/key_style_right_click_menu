@@ -13,14 +13,14 @@
         let counter = 0;
         const maxCounter = 10;
         document.addEventListener('DOMContentLoaded', function(initgalMenu) {
-          if (typeof galMenu !== 'function') {if (counter > maxCounter) {return;} else {counter++;setTimeout(initgalMenu, 1000);}}
+          if (typeof galMenu !== 'function') {if (counter > maxCounter) {console.error("⚙️GalMenu: Retry limit reached!");return;} else {counter++;console.warn("⚙️GalMenu: Js hasn't finished loading yet, retrying...");setTimeout(initgalMenu, 1000);}}
         galMenu('body', {
           menu:"galRing",
           click_to_close:true,
           stay_open:false,
           audio_play:true,
-          font_size:"1.0em",
           audio_url:"https://cdn.illusionlie.com/js/key_style_right_click_menu/audio.mp3",
+          font_size:"1.0em",
           ring1_text:"Home",
           ring1_link:"https://github.com/illusionlie/key_style_right_click_menu",
           ring1_pic:"https://cdn.illusionlie.com/img/girls/ayane_thumb.webp",
@@ -40,6 +40,7 @@
           ring6_link:"#other",
           ring6_pic:"https://cdn.illusionlie.com/img/girls/chieri_thumb.webp"
         });
+        console.log("⚙️GalMenu: Initialized!");
       });
     </script>
     <a href="https://github.com/illusionlie/key_style_right_click_menu" class="github-corner">
